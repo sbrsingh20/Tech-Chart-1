@@ -1,4 +1,5 @@
 import streamlit as st
+import streamlit.components.v1 as components
 
 # List of top 10 Indian stocks
 indian_stocks = {
@@ -29,7 +30,7 @@ tradingview_widget = f"""
 <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script type="text/javascript">
     new TradingView.widget({{
-        "width": 980,
+        "width": "100%",
         "height": 610,
         "symbol": "{symbol}",
         "interval": "D",
@@ -46,4 +47,4 @@ tradingview_widget = f"""
 """
 
 # Display the TradingView widget in the Streamlit app
-st.markdown(tradingview_widget, unsafe_allow_html=True)
+components.html(tradingview_widget, height=650)
